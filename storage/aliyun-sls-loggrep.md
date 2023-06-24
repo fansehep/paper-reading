@@ -1,5 +1,7 @@
 - [LogGrep: Fast and Cheap Cloud Log Storage by Exploiting both Static and Runtime Patterns](https://web.cse.ohio-state.edu/~wang.7564/papers/eurosys23-final39.pdf)
 
+- [LogReducer: On the Feasibility of Parser-based Log Compression in large-Scale Cloud Systems](https://www.usenix.org/system/files/fast21-wei.pdf)
+
 - 日志服务几乎是现代所有中大型软件所必需的辅助运维工具, 阿里云 sls 则是国内日志服务的前沿。本篇 paper 描述了一种高效的日志压缩手段。
 
 - sls 的日志分为三种类型:
@@ -23,7 +25,7 @@
   ```
   这里是说，例如上方的例子: **"send request error request_id: " + "{} + " {} + "error_msg: " + "{}"** 这个字符串会在该应用程序中大量出现，而且只有 request_id: {} 和 err_msg: {} 这两个字段的后两个变量是变化的. CLP 称这些静态字符串是令牌. CLP 可以确定这些令牌是来自模版的静态部分还是变量。CLP 使用标识符替换其中的静态部分，并存储其中的变量令牌。
 
-  笔者这里不过多介绍 CLP, 感兴趣可以看看其他介绍.
+  笔者这里不过多介绍 CLP, 感兴趣可以看看[CLP guide](/storage/fast-CLP.md)
 
   但由于这种方法大量编排了静态字符串，对于搜索实在是不太满意。
 
